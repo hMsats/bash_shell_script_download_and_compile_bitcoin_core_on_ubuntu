@@ -41,7 +41,7 @@ VERSION=$1
 if [ $do_download_bitcoin_core = 1 ]; then
 
   if [[ -d "$HOME/bitcoin-$VERSION" ]]; then
-    echo "$HOME/bitcoin-$VERSION already exists on your filesystem"
+    echo "$HOME/bitcoin-$VERSION already exists in your home directory"
     echo "Aborting this Bash script" 
     echo "EXIT"
     exit
