@@ -14,4 +14,6 @@ The necessary packages are installed and berkeley-db is downloaded and compiled.
 
 Bitcoin Core is downloaded from https://bitcoincore.org (download is not checked (yet))
 
+Total compilation time will be on the order of 1 hour or more.
+
 This script was recently tested on a fairly fresh Ubuntu install and it worked like a charm.
