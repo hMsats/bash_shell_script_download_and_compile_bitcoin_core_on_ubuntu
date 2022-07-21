@@ -16,4 +16,4 @@ Bitcoin Core is downloaded from https://bitcoincore.org (download is not checked
 
 Total compilation time will be on the order of 1 hour or more.
 
-This script was recently tested on a fairly fresh Ubuntu install and it worked like a charm.
+This script was recently tested on a fairly fresh Ubuntu install (20.04.4 LTS) and it worked like a charm.
