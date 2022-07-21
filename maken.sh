@@ -34,6 +34,8 @@ if [ $# == 0 ]; then
   exit
 fi
 
+cd $HOME
+
 VERSION=$1
 
 if [ $do_download_bitcoin_core = 1 ]; then
