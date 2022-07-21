@@ -125,8 +125,12 @@ fi
 
 if [ $do_test_bitcoin_core = 1 ]; then
   fecho "Testing Bitcoin Core"
+  
+  fecho "Testing bitcoind"
   cd $HOME/$BITCOIN_NAME/src/test
   ./test_bitcoin
+  
+  fecho "Testing bitcoin-qt"
   cd $HOME/$BITCOIN_NAME/src/qt/test
   ./test_bitcoin-qt
 fi
