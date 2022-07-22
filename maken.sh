@@ -86,6 +86,8 @@ if [ $do_install_packages = 1 ]; then
   fecho "Installing packages"
 
   # Install doxygen
+  # Adding repository universe is necessary for 20.04.1 LTS
+  # but will be skipped if already present
   sudo apt-add-repository universe
   sudo apt-get update
   sudo apt-get install doxygen
