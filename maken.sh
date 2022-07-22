@@ -84,7 +84,7 @@ else
 fi
 
 if [ $do_install_packages = 1 ]; then
-  fecho "Installing packages"
+  fecho "Installing packages via sudo (password probably needed)"
 
   # Install doxygen
   # Adding repository universe is necessary for 20.04.1 LTS
