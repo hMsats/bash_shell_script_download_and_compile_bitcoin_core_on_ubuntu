@@ -56,7 +56,7 @@ if [ $do_download_bitcoin_core = 1 ]; then
   tar -zxf bitcoin-$VERSION.tar.gz
 
 else
-  echo "SKIP downloading bitcoin core"
+  echo "SKIP downloading and unpacking bitcoin core"
 fi
 
 # Check if bitcoin core exists now
