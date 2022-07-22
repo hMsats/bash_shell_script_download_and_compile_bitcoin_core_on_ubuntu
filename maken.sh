@@ -1,10 +1,14 @@
 #!/bin/bash
 
-# Simple Bash script to compile Bitcoin Core
-# on Ubuntu Linux.
-
-# You'll find bitcoind and bitcoin-cli in $HOME/bitcoin-$VERSION.0/src
-# and bitcoin-qt in $HOME/bitcoin-$VERSION/src/qt
+#
+# Bash script to compile Bitcoin Core on Ubuntu Linux.
+#
+# You'll find bitcoind and bitcoin-cli in $HOME/bitcoin-23.0/src and
+# bitcoin-qt in $HOME/bitcoin-23.0/src/qt if you compile version 23.0
+#
+# Usage:
+# ./maken.sh 23.0
+# to download and compile bitcoin version 23.0
 #
 
 # Set the "do"-variables to 1 or 0 to execute or
