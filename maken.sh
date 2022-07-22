@@ -50,11 +50,11 @@ function dnexab () {
   fi
 }
 
-if [ $# == 0 ]; then
+if [ $# != 1 ]; then
   echo "Usage:"
-  echo "./maken.sh version"
+  echo "  ./maken.sh version"
   echo "Example:"
-  echo "./maken.sh 23.0"
+  echo "  ./maken.sh 23.0"
   echo "EXIT"
   exit
 fi
