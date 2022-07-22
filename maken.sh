@@ -84,7 +84,6 @@ if [ $do_install_packages = 1 ]; then
   
   # Install other packages
   sudo apt-get install make libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libboost-all-dev build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3
-  sleep 5
 fi
 
 if [ $do_compile_berkeley_db = 1 ]; then
