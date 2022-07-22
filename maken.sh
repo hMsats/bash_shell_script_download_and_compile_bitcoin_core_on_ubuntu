@@ -123,7 +123,6 @@ if [ $do_compile_berkeley_db = 1 ]; then
   ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
   make install
 else
-else
   fecho "Skip compiling berkeley-db"
 fi
 
