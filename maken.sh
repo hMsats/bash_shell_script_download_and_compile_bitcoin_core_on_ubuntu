@@ -10,7 +10,7 @@
 # Set the "do"-variables to 1 or 0 to execute or 
 # not execute a specific part of the code 
 # All are default 1
-do_download_bitcoin_core=1 # Download bitcoin core from bitcoincore.org (download not checked (yet))
+do_download_and_unpack_bitcoin_core=1 # Download and unpack bitcoin core from bitcoincore.org (download not checked (yet))
 do_install_packages=1 # Download the packages needed to compile bitcoin core
 do_download_berkeley_db=1 # Download berkeley db needed to compile bitcoin core
 do_compile_berkeley_db=1 # Compile berkeley db needed to compile bitcoin core
@@ -38,7 +38,7 @@ cd $HOME
 
 VERSION=$1
 
-if [ $do_download_bitcoin_core = 1 ]; then
+if [ $do_download_and_unpack_bitcoin_core = 1 ]; then
 
   if [[ -d "$HOME/bitcoin-$VERSION" ]]; then
     echo "$HOME/bitcoin-$VERSION already exists in your home directory"
@@ -49,7 +49,7 @@ if [ $do_download_bitcoin_core = 1 ]; then
     echo "Downloading $HOME/bitcoin-$VERSION.tar.gz in $HOME from bitcoincore.org"
   fi
 
-  cd $HOME
+  # Download bitcoin core
   wget --quiet -O bitcoin-$VERSION.tar.gz https://bitcoincore.org/bin/bitcoin-core-$VERSION/bitcoin-$VERSION.tar.gz
 
   fecho "Unpacking $HOME/bitcoin-$VERSION.tar.gz in $HOME"
@@ -62,7 +62,9 @@ fi
 # Check if bitcoin core exists now
 if [[ -d "$HOME/bitcoin-$VERSION" ]]; then
 
+  # Move to bitcoin core's top directory
   cd $HOME/bitcoin-$VERSION
+  BITCOIN_NAME=$(basename `pwd`) # Should return the current version.
 
 else
 
@@ -71,8 +73,6 @@ else
   exit
 
 fi
-
-BITCOIN_NAME=$(basename `pwd`) # Should return the current version.
 
 if [ $do_install_packages = 1 ]; then
   fecho "Installing packages"
