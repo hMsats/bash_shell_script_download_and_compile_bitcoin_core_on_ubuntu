@@ -21,7 +21,7 @@ do_compile_berkeley_db=1 # Compile berkeley db needed to compile bitcoin core
 do_compile_bitwoin_core=1 # Compile Bitcoin Core
 do_test_bitcoin_core=1 # Test Bitcoin Core
 
-# echo with sleep and newlines
+# Echo with sleep and newlines
 function fecho () {
   sleep 5
   echo ""
@@ -54,6 +54,7 @@ function dnexab () {
   fi
 }
 
+# Demand 1 and only 1 command line option
 if [ $# != 1 ]; then
   echo "Usage:"
   echo "  ./maken.sh version"
