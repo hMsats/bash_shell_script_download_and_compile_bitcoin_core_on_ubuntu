@@ -116,7 +116,6 @@ if [ $do_compile_berkeley_db = 1 ]; then
   cat dbinc/atomic.h_orig | sed 's/__atomic_compare_exchange/__atomic_compare_exchange_db/' > dbinc/atomic.h
 
   cd build_unix
-
   mkdir -p build
   BDB_PREFIX="$HOME/db-4.8.30.NC/build_unix/build/"
   echo BDB $BDB_PREFIX
