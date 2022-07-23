@@ -98,6 +98,8 @@ if [ $do_download_and_unpack_bitcoin_core = 1 ]; then
   else
     fecho "Download of bitcoin core OK"
   fi
+  \rm SHA256SUMS
+  \rm SHA256SUMS.asc
 
   fecho "Unpacking $HOME/bitcoin-$VERSION.tar.gz in $HOME"
   dexab $HOME/bitcoin-$VERSION
