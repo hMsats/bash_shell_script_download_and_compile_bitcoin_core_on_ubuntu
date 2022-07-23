@@ -12,7 +12,7 @@ Don't forget `chmod +x maken.sh` before execution. All Bitcoin Core tests are ru
 
 The necessary packages are installed and berkeley-db is downloaded and compiled.
 
-Bitcoin Core is downloaded from https://bitcoincore.org (download is not checked (yet))
+Bitcoin Core is downloaded from https://bitcoincore.org
 
 Total compilation time will be on the order of 1 hour or more.
 
