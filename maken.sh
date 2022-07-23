@@ -90,7 +90,7 @@ if [ $do_download_and_unpack_bitcoin_core = 1 ]; then
   fexab SHA256SUMS.asc
   wget --quiet -O SHA256SUMS.asc https://bitcoincore.org/bin/bitcoin-core-$VERSION/SHA256SUMS.asc
   fnexab SHA256SUMS.asc
-  res0=$(sha256sum --ignore-missing --check SHA256SUMS bitcoin-$VERSION.tar.gz | head -1 | sed "s/bitcoin-$VERSION.tar.gz: //")
+  res0=$(sha256sum --ignore-missing --check SHA256SUMS bitcoin-$VERSION.tar.gz | sed "s/bitcoin-$VERSION.tar.gz: //")
   if [[ -z "$res0" || $res0 != "OK" ]]; then
     echo "Download of bitcoin-$VERSION.tar.gz has the wrong sha256 checksum"
     echo "Aborting this Bash script"
