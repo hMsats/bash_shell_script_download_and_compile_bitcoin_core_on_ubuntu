@@ -132,7 +132,7 @@ if [ $do_compile_berkeley_db = 1 ]; then
  
     # Check the sha256 checksum of the berkeley-db download
     res=$(echo '12edc0df75bf9abd7f82f821795bcee50f42cb2e5f76a6a281b85732798364ef  db-4.8.30.NC.tar.gz' | sha256sum -c | sed 's/db-4.8.30.NC.tar.gz: //')
-    if [[ -z "$res0" || $res0 != "OK" ]]; then
+    if [[ -z "$res" || $res != "OK" ]]; then
       echo "Download of berkeley-db has the wrong sha256 checksum"
       echo "Aborting this Bash script"
       exit
