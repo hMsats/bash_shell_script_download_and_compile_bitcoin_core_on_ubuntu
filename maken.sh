@@ -54,7 +54,7 @@ function dnexab () {
   fi
 }
 # Abort if file doesn't exist
-function fexab () {
+function fnexab () {
   if [[ ! -f "$1" ]]; then
     echo "$1 dowsn't exist in your home directory"
     echo "Aborting this Bash script"
