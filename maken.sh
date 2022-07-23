@@ -53,6 +53,14 @@ function dnexab () {
     exit
   fi
 }
+# Abort if file doesn't exist
+function fexab () {
+  if [[ ! -f "$1" ]]; then
+    echo "$1 dowsn't exist in your home directory"
+    echo "Aborting this Bash script"
+    exit
+  fi
+}
 
 # Demand 1 and only 1 command line option
 if [ $# != 1 ]; then
@@ -74,6 +82,22 @@ if [ $do_download_and_unpack_bitcoin_core = 1 ]; then
   echo "Downloading $HOME/bitcoin-$VERSION.tar.gz in $HOME from bitcoincore.org"
   fexab $HOME/bitcoin-$VERSION.tar.gz
   wget --quiet -O bitcoin-$VERSION.tar.gz https://bitcoincore.org/bin/bitcoin-core-$VERSION/bitcoin-$VERSION.tar.gz
+  
+  fecho "Checking the bitcoin core download"
+  fexab SHA256SUMS
+  wget --quiet -O SHA256SUMS https://bitcoincore.org/bin/bitcoin-core-$VERSION/SHA256SUMS
+  fnexab SHA256SUMS
+  fexab SHA256SUMS.asc
+  wget --quiet -O SHA256SUMS.asc https://bitcoincore.org/bin/bitcoin-core-$VERSION/SHA256SUMS.asc
+  fnexab SHA256SUMS.asc
+  res0=$(sha256sum --ignore-missing --check SHA256SUMS bitcoin-$VERSION.tar.gz | head -1 | sed "s/bitcoin-$VERSION.tar.gz: //")
+  if [[ -z "$res0" || $res0 != "OK" ]]; then
+    echo "Download of bitcoin-$VERSION.tar.gz has the wrong sha256 checksum"
+    echo "Aborting this Bash script"
+    exit
+  else
+    fecho "Download of bitcoin core OK"
+  fi
 
   fecho "Unpacking $HOME/bitcoin-$VERSION.tar.gz in $HOME"
   dexab $HOME/bitcoin-$VERSION
@@ -108,7 +132,7 @@ if [ $do_compile_berkeley_db = 1 ]; then
  
     # Check the sha256 checksum of the berkeley-db download
     res=$(echo '12edc0df75bf9abd7f82f821795bcee50f42cb2e5f76a6a281b85732798364ef  db-4.8.30.NC.tar.gz' | sha256sum -c | sed 's/db-4.8.30.NC.tar.gz: //')
-    if [ $res != "OK" ]; then
+    if [[ -z "$res0" || $res0 != "OK" ]]; then
       echo "Download of berkeley-db has the wrong sha256 checksum"
       echo "Aborting this Bash script"
       exit
