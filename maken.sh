@@ -75,6 +75,7 @@ fi
 VERSION=$1
 BITCOIN_NAME=bitcoin-$VERSION
 
+# Move to the home directory
 cd $HOME
 
 # 
