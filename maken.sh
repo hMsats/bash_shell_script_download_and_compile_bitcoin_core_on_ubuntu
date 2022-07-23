@@ -4,7 +4,7 @@
 # Bash script to compile Bitcoin Core on Ubuntu Linux.
 #
 # You'll find bitcoind and bitcoin-cli in $HOME/bitcoin-23.0/src and
-# bitcoin-qt in $HOME/bitcoin-23.0/src/qt if you compile version 23.0
+# bitcoin-qt in $HOME/bitcoin-23.0/src/qt when compiling version 23.0
 #
 # Usage:
 # ./maken.sh 23.0
