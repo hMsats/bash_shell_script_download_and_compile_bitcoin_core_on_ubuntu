@@ -4,7 +4,7 @@
 
 Just execute in a terminal `./maken.sh 23.0`
 
-to download and compile bitcoin core version 23.0 in your home directory.
+to download and compile bitcoin core version 23.0 in your home directory on Ubuntu.
 
 You'll find bitcoind and bitcoin-cli in bitcoin-23.0/src and bitcoin-qt in bitcoin-23.0/src/qt.
 
