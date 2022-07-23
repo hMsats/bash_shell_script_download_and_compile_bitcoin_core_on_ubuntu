@@ -77,6 +77,10 @@ cd $HOME
 VERSION=$1
 BITCOIN_NAME=bitcoin-$VERSION
 
+# 
+# DOWNLOAD AND UNPACK BITCOIN CORE
+#
+
 if [ $do_download_and_unpack_bitcoin_core = 1 ]; then
 
   echo "Downloading $HOME/bitcoin-$VERSION.tar.gz in $HOME from bitcoincore.org"
@@ -110,6 +114,10 @@ else
   echo "Skip downloading and unpacking bitcoin core"
 fi
 
+#
+# INSTALL REQUIRED PACKAGES
+#
+
 if [ $do_install_packages = 1 ]; then
   fecho "Installing packages via sudo (password probably needed)"
 
@@ -125,6 +133,10 @@ if [ $do_install_packages = 1 ]; then
 else
   fecho "Skip installing packages"
 fi
+
+#
+# COMPILE BERKELEY-DB
+#
 
 if [ $do_compile_berkeley_db = 1 ]; then
   cd $HOME
@@ -166,6 +178,10 @@ else
   fecho "Skip compiling berkeley-db"
 fi
 
+#
+# COMPILE BITCOIN CORE
+#
+
 if [ $do_compile_bitwoin_core = 1 ]; then
   fecho "Compiling Bitcoin Core"
   # Execute in the Bitcoin directory:
@@ -186,6 +202,10 @@ if [ $do_compile_bitwoin_core = 1 ]; then
 else
   fecho "Skip compiling bitcoin core"
 fi
+
+#
+# TEST BITCOIN CORE
+#
 
 if [ $do_test_bitcoin_core = 1 ]; then
   fecho "Testing Bitcoin Core"
