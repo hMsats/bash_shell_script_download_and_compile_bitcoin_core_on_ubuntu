@@ -72,10 +72,10 @@ if [ $# != 1 ]; then
   exit
 fi
 
-cd $HOME
-
 VERSION=$1
 BITCOIN_NAME=bitcoin-$VERSION
+
+cd $HOME
 
 # 
 # DOWNLOAD AND UNPACK BITCOIN CORE
