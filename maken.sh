@@ -14,7 +14,8 @@
 # Set the "do"-variables to 1 or 0 to execute or
 # not execute a specific part of the code
 # All are 1 by default
-do_download_and_unpack_bitcoin_core=1 # Download and unpack bitcoin core from bitcoincore.org (download not checked (yet))
+do_download_and_unpack_bitcoin_core=1 # Download and unpack bitcoin core from bitcoincore.org
+do_check_bitcoin_core_download=1 # Set to 0 if compiling versions < 22.0
 do_install_packages=1 # Download the packages needed to compile bitcoin core
 do_download_berkeley_db=1 # Download berkeley db needed to compile bitcoin core
 do_compile_berkeley_db=1 # Compile berkeley db needed to compile bitcoin core
@@ -88,23 +89,28 @@ if [ $do_download_and_unpack_bitcoin_core = 1 ]; then
   fexab $HOME/bitcoin-$VERSION.tar.gz
   \wget --quiet -O bitcoin-$VERSION.tar.gz https://bitcoincore.org/bin/bitcoin-core-$VERSION/bitcoin-$VERSION.tar.gz
   
-  fecho "Checking the bitcoin core download"
-  fexab SHA256SUMS
-  \wget --quiet -O SHA256SUMS https://bitcoincore.org/bin/bitcoin-core-$VERSION/SHA256SUMS
-  fnexab SHA256SUMS
-  fexab SHA256SUMS.asc
-  \wget --quiet -O SHA256SUMS.asc https://bitcoincore.org/bin/bitcoin-core-$VERSION/SHA256SUMS.asc
-  fnexab SHA256SUMS.asc
-  res0=$(sha256sum --ignore-missing --check SHA256SUMS bitcoin-$VERSION.tar.gz | sed "s/bitcoin-$VERSION.tar.gz: //")
-  if [[ -z "$res0" || $res0 != "OK" ]]; then
-    echo "Download of bitcoin-$VERSION.tar.gz has the wrong sha256 checksum"
-    echo "Aborting this Bash script"
-    # Don't leave traces. Avoid that we run into troubles when downloading the next version
-    \rm SHA256SUMS
-    \rm SHA256SUMS.asc
-    exit
+  
+  if [ $do_check_bitcoin_core_download = 1 ]; then
+    fecho "Checking the bitcoin core download"
+    fexab SHA256SUMS
+    \wget --quiet -O SHA256SUMS https://bitcoincore.org/bin/bitcoin-core-$VERSION/SHA256SUMS
+    fnexab SHA256SUMS
+    fexab SHA256SUMS.asc
+    \wget --quiet -O SHA256SUMS.asc https://bitcoincore.org/bin/bitcoin-core-$VERSION/SHA256SUMS.asc
+    fnexab SHA256SUMS.asc
+    res0=$(sha256sum --ignore-missing --check SHA256SUMS bitcoin-$VERSION.tar.gz | sed "s/bitcoin-$VERSION.tar.gz: //")
+    if [[ -z "$res0" || $res0 != "OK" ]]; then
+      echo "Download of bitcoin-$VERSION.tar.gz has the wrong sha256 checksum"
+      echo "Aborting this Bash script"
+      # Don't leave traces. Avoid that we run into troubles when downloading the next version
+      \rm SHA256SUMS
+      \rm SHA256SUMS.asc
+      exit
+    else
+      fecho "Download of bitcoin core OK"
+    fi
   else
-    fecho "Download of bitcoin core OK"
+    fecho "Skip checking the bitcoin core download"
   fi
   # Don't leave traces. Avoid that we run into troubles when downloading the next version
   \rm SHA256SUMS
