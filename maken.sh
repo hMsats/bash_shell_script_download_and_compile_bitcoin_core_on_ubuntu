@@ -99,6 +99,9 @@ if [ $do_download_and_unpack_bitcoin_core = 1 ]; then
   if [[ -z "$res0" || $res0 != "OK" ]]; then
     echo "Download of bitcoin-$VERSION.tar.gz has the wrong sha256 checksum"
     echo "Aborting this Bash script"
+    # Don't leave traces. Avoid that we run into troubles when downloading the next version
+    \rm SHA256SUMS
+    \rm SHA256SUMS.asc
     exit
   else
     fecho "Download of bitcoin core OK"
