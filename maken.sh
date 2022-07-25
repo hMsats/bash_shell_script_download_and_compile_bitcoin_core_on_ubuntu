@@ -109,12 +109,12 @@ if [ $do_download_and_unpack_bitcoin_core = 1 ]; then
     else
       fecho "Download of bitcoin core OK"
     fi
+    # Don't leave traces. Avoid that we run into troubles when downloading the next version
+    \rm SHA256SUMS
+    \rm SHA256SUMS.asc
   else
     fecho "Skip checking the bitcoin core download"
   fi
-  # Don't leave traces. Avoid that we run into troubles when downloading the next version
-  \rm SHA256SUMS
-  \rm SHA256SUMS.asc
 
   fecho "Unpacking $HOME/bitcoin-$VERSION.tar.gz in $HOME"
   dexab $HOME/bitcoin-$VERSION
