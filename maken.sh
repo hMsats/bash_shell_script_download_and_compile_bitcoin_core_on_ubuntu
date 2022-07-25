@@ -89,7 +89,6 @@ if [ $do_download_and_unpack_bitcoin_core = 1 ]; then
   fexab $HOME/bitcoin-$VERSION.tar.gz
   \wget --quiet -O bitcoin-$VERSION.tar.gz https://bitcoincore.org/bin/bitcoin-core-$VERSION/bitcoin-$VERSION.tar.gz
   
-  
   if [ $do_check_bitcoin_core_download = 1 ]; then
     fecho "Checking the bitcoin core download"
     fexab SHA256SUMS
