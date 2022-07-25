@@ -17,3 +17,5 @@ Bitcoin Core is downloaded from https://bitcoincore.org.
 Total compilation time will be on the order of 1 hour or more.
 
 This script was recently tested on a fairly fresh Ubuntu install (20.04.4 LTS).
+
+Because of how the checksums are calculated, the script only works for Bitcoin Core versions 22.0 and higher.
