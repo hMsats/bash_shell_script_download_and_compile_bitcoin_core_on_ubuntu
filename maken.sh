@@ -196,9 +196,11 @@ if [ $do_compile_bitwoin_core = 1 ]; then
   echo BDB $BDB_PREFIX
 
   fecho "Executing autogen.sh before executing make"
+  fnexab ./autogen.sh
   ./autogen.sh
 
   fecho "Executing configure before executing make"
+  fnexab ./configure
   ./configure CPPFLAGS="-I$BDB_PREFIX/include/" LDFLAGS="-L$BDB_PREFIX/lib/" --with-gui
 
   fecho "Executing make"
