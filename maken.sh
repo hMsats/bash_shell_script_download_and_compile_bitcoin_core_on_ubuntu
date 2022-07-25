@@ -8,7 +8,7 @@
 #
 # Usage:
 # ./maken.sh 23.0
-# to download and compile bitcoin version 23.0
+# to download and compile Bitcoin Core version 23.0
 #
 
 # Set the "do"-variables to 1 or 0 to execute or
