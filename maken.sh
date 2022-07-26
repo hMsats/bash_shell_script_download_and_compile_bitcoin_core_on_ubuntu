@@ -85,9 +85,9 @@ cd $HOME
 
 if [ $do_download_and_unpack_bitcoin_core = 1 ]; then
 
-  echo "Downloading $HOME/bitcoin-$VERSION.tar.gz in $HOME from bitcoincore.org"
-  fexab $HOME/bitcoin-$VERSION.tar.gz
-  \wget --quiet -O bitcoin-$VERSION.tar.gz https://bitcoincore.org/bin/bitcoin-core-$VERSION/bitcoin-$VERSION.tar.gz
+  echo "Downloading $HOME/$BITCOIN_NAME.tar.gz in $HOME from bitcoincore.org"
+  fexab $HOME/$BITCOIN_NAME.tar.gz
+  \wget --quiet -O $BITCOIN_NAME.tar.gz https://bitcoincore.org/bin/bitcoin-core-$VERSION/$BITCOIN_NAME.tar.gz
   
   if [ $do_check_bitcoin_core_download = 1 ]; then
     fecho "Checking the bitcoin core download"
@@ -97,9 +97,9 @@ if [ $do_download_and_unpack_bitcoin_core = 1 ]; then
     fexab SHA256SUMS.asc
     \wget --quiet -O SHA256SUMS.asc https://bitcoincore.org/bin/bitcoin-core-$VERSION/SHA256SUMS.asc
     fnexab SHA256SUMS.asc
-    res0=$(sha256sum --ignore-missing --check SHA256SUMS bitcoin-$VERSION.tar.gz | sed "s/bitcoin-$VERSION.tar.gz: //")
+    res0=$(sha256sum --ignore-missing --check SHA256SUMS $BITCOIN_NAME.tar.gz | sed "s/$BITCOIN_NAME.tar.gz: //")
     if [[ -z "$res0" || $res0 != "OK" ]]; then
-      echo "Download of bitcoin-$VERSION.tar.gz has the wrong sha256 checksum"
+      echo "Download of $BITCOIN_NAME.tar.gz has the wrong sha256 checksum"
       echo "Aborting this Bash script"
       # Don't leave traces. Avoid that we run into troubles when downloading the next version
       \rm SHA256SUMS
@@ -115,9 +115,9 @@ if [ $do_download_and_unpack_bitcoin_core = 1 ]; then
     fecho "Skip checking the bitcoin core download"
   fi
 
-  fecho "Unpacking $HOME/bitcoin-$VERSION.tar.gz in $HOME"
-  dexab $HOME/bitcoin-$VERSION
-  \tar -zxf bitcoin-$VERSION.tar.gz
+  fecho "Unpacking $HOME/$BITCOIN_NAME.tar.gz in $HOME"
+  dexab $HOME/$BITCOIN_NAME
+  \tar -zxf $BITCOIN_NAME.tar.gz
 
 else
   echo "Skip downloading and unpacking bitcoin core"
