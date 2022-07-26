@@ -24,6 +24,7 @@ To compile earlier versions set "do_check_bitcoin_core_download=0" inside the sc
 
 If unfamiliar with GithHub, type the following in a terminal
 
+```
 cd
 
 git clone https://github.com/hMsats/bash_shell_script_download_and_compile_bitcoin_core_on_ubuntu.git
@@ -33,5 +34,6 @@ cd bash_shell_script_download_and_compile_bitcoin_core_on_ubuntu
 chmod +x maken.sh
 
 ./maken.sh 23.0
+```
 
 This should install Bitcoin Core 23.0 on your Ubuntu Linux
