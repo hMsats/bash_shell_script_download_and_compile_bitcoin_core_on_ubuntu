@@ -18,7 +18,7 @@ Total compilation time will be on the order of 1 hour or more.
 
 This script was recently tested on a fairly fresh Ubuntu install (20.04.4 LTS).
 
-Because of how the checksums are calculated, the script "maken.sh" only works for Bitcoin Core versions 22.0 and higher. 
+Because of how the checksums are calculated, the script "maken.sh" only works for Bitcoin Core versions 22.0 or higher. 
 To compile earlier versions set "do_check_bitcoin_core_download=0" inside the script "maken.sh".
 
 
