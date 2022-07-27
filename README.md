@@ -22,7 +22,12 @@ Because of how the checksums are calculated, the script "maken.sh" only works fo
 To compile earlier versions set "do_check_bitcoin_core_download=0" inside the script "maken.sh".
 
 
-If unfamiliar with GitHub, type or past the following in a terminal (ctrl alt t)
+If unfamiliar with GitHub, install git in a terminal (ctrl alt t)
+```
+sudo apt update
+sudo apt install git
+```
+and type or past the following 
 
 ```
 cd
