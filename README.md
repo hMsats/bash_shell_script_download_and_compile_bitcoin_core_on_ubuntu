@@ -10,7 +10,7 @@ You'll find bitcoind and bitcoin-cli in bitcoin-23.0/src and bitcoin-qt in bitco
 
 Don't forget `chmod +x maken.sh` before execution. All Bitcoin Core tests are run.
 
-The necessary packages are installed and the appropriate berkeley-db is downloaded and compiled.
+The necessary packages are installed and the appropriate berkeley-db version is downloaded and compiled.
 
 Bitcoin Core is downloaded from https://bitcoincore.org.
 
