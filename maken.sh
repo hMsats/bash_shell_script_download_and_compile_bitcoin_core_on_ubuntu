@@ -46,7 +46,7 @@ function fexab () {
     exit
   fi
 }
-# Abort if directory does not exist
+# Abort if directory doesn't exist
 function dnexab () {
   if [[ ! -d "$1" ]]; then
     echo "$1 doesn't exist in your home directory"
@@ -63,7 +63,7 @@ function fnexab () {
   fi
 }
 
-# Demand 1 and only 1 command line option
+# Demand 1 and only 1 command line argument
 if [ $# != 1 ]; then
   echo "Usage:"
   echo "  ./maken.sh version"
